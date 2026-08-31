@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    
+    <!-- Configuración Avanzada Open Graph (OG Share) - Conecta Card Oficial -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://demo-drag.pideya.contact/" />
+    <meta property="og:title" content="TONAH | EL HOMBRE ORQUESTA" />
+    <meta property="og:description" content="Descubre el arte, talento y presencia escénica de Tonah. Explora su trayectoria profesional y el mundo del espectáculo con su CONECTA CARD." />
+    
+    <!-- Infraestructura Multimedia Premium de Imagen de Portada -->
+    <meta property="og:image" content="https://demo-drag.pideya.contact/og_drag.jpg" />
+    <meta property="og:image:secure_url" content="https://demo-drag.pideya.contact/og_drag.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1920" />
+    
+    <title data-i18n="meta_title">TONAH | EL HOMBRE ORQUESTA</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Estilos para el Menú Desplegable Centrado Arriba y Asistente Modal -->
+    <style>
+        /* ESTILOS DEL MENÚ DESPLEGABLE DE IDIOMAS (CENTRADO ARRIBA) */
+        .top-lang-container {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 7500;
+            text-align: center;
+        }
+        .top-lang-btn {
+            background: rgba(5,7,10,0.95);
+            border: 1px solid #1e40af;
+            color: #fdf8f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .top-lang-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 45px;
+            background: #0c121d;
+            border: 1px solid #1e40af;
+            border-radius: 12px;
+            flex-direction: column;
+            gap: 4px;
+            padding: 8px;
+            min-width: 180px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+            z-index: 7600;
+        }
+        .top-lang-dropdown-content.show {
+            display: flex;
+        }
+        .lang-chip {
+            background: transparent;
+            border: none;
+            color: #fdf8f0;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lang-chip:hover, .lang-chip.active {
+            background: rgba(30, 64, 175, 0.4);
+            border-left: 3px solid #1e40af;
+        }
+
+        /* Estilos originales del Asistente Modal */
+        .btn-asistente-modal {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        .btn-asistente-modal:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        .asistente-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .asistente-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            max-height: 85vh;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+        }
+        .asistente-container details {
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border: 1px solid #eee;
+        }
+        .asistente-container summary {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .asistente-container p {
+            color: #555;
+            font-size: 0.83rem;
+            margin-top: 8px;
+            line-height: 1.4;
+            border-top: 1px solid #eaeaea;
+            padding-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BLOQUE SEPARADO EXCLUSIVO PARA EL LETRERO -->
+<div style="text-align: center; margin-bottom: 2px;">
+    <span style="display: inline-block; font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-right: 220px; position: relative; top: 17px;">LANGUAGE</span>
+    
+    <!-- 2. TU MENÚ ORIGINAL INTACTO (Tal cual me lo diste al principio, sin alteraciones) -->
+    <div class="top-lang-container" style="display: inline-block;">
+        <button class="top-lang-btn" onclick="toggleLangDropdown()">
+            <i class="fas fa-globe"></i> <span data-i18n="lbl_idioma">IDIOMA</span> <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="topLangDropdown" class="top-lang-dropdown-content">
+            <button class="lang-chip active" onclick="changeLanguage('es'); toggleLangDropdown();">🇪🇸 ESPAÑOL</button>
+            <button class="lang-chip" onclick="changeLanguage('en'); toggleLangDropdown();">🇺🇸 ENGLISH</button>
+            <button class="lang-chip" onclick="changeLanguage('pt'); toggleLangDropdown();">🇧🇷 PORTUGUÊS</button>
+            <button class="lang-chip" onclick="changeLanguage('fr'); toggleLangDropdown();">🇫🇷 FRANÇAIS</button>
+            <button class="lang-chip" onclick="changeLanguage('ko'); toggleLangDropdown();">🇰🇷 한국어</button>
+            <button class="lang-chip" onclick="changeLanguage('de'); toggleLangDropdown();">🇩🇪 DEUTSCH</button>
+            <button class="lang-chip" onclick="changeLanguage('ja'); toggleLangDropdown();">🇯🇵 日本語</button>
+            <button class="lang-chip" onclick="changeLanguage('zh'); toggleLangDropdown();">🇨🇳 中文</button>
+        </div>
+    </div>
+</div>
+
+        <!-- SCRIPT DE FUNCIONALIDAD DEL MENÚ DE IDIOMAS (AL FINAL DEL BODY) -->
+    <script>
+        function toggleLangDropdown() {
+            const dropdown = document.getElementById('topLangDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.top-lang-btn') && !event.target.matches('.top-lang-btn *')) {
+                const dropdown = document.getElementById('topLangDropdown');
+                if (dropdown && dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+    <!-- ARCHIVO DE TRADUCCIONES (LANG.JS) -->
+    <script src="lang.js"></script>
+</body>
+</html>
+
+    <!-- MENÚ DESPLEGABLE DE IDIOMAS (CENTRADO ARRIBA) -->
+    <div class="top-lang-container">
+        <button class="top-lang-btn" onclick="toggleLangDropdown()">
+            <i class="fas fa-globe"></i> <span data-i18n="lbl_idioma">IDIOMA</span> <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="topLangDropdown" class="top-lang-dropdown-content">
+            <button class="lang-chip active" onclick="changeLanguage('es'); toggleLangDropdown();">🇪🇸 ESPAÑOL</button>
+            <button class="lang-chip" onclick="changeLanguage('en'); toggleLangDropdown();">🇺🇸 ENGLISH</button>
+            <button class="lang-chip" onclick="changeLanguage('pt'); toggleLangDropdown();">🇧🇷 PORTUGUÊS</button>
+            <button class="lang-chip" onclick="changeLanguage('fr'); toggleLangDropdown();">🇫🇷 FRANÇAIS</button>
+            <button class="lang-chip" onclick="changeLanguage('ko'); toggleLangDropdown();">🇰🇷 한국어</button>
+            <button class="lang-chip" onclick="changeLanguage('de'); toggleLangDropdown();">🇩🇪 DEUTSCH</button>
+            <button class="lang-chip" onclick="changeLanguage('ja'); toggleLangDropdown();">🇯🇵 日本語</button>
+            <button class="lang-chip" onclick="changeLanguage('zh'); toggleLangDropdown();">🇨🇳 中文</button>
+        </div>
+    </div>
+    
+    <button id="btn-audio-control" class="audio-toggle" onclick="toggleAudioGlobal()">
+        <i id="audio-icon" class="fas fa-volume-up"></i>
+    </button>
+
+    <section id="portada-hub" class="main-hub">
+        <header class="magazine-header">
+            <div class="header-title-container">
+                <h1 class="agency-name">TONAH EL HOMBRE ORQUESTA</h1>
+                <div class="download-track-container">
+                    <!-- Contenido eliminado para limpiar la vista, manteniendo el contenedor -->
+                </div>
+            </div>
+            <img src="assets/brand/logo-mini.png" alt="Logo" class="agency-logo">
+        </header>
+
+        <div class="mosaic-grid">
+            <div class="mosaic-item hero-block" onclick="openProfileZoom()">
+                <img id="profile-pic-img" src="assets/hero/main-photo.jpg" alt="Tonah El Hombre Orquesta" data-i18n-alt="alt_hero_img">
+                <div class="hero-overlay">
+                    <span class="edition-label" data-i18n="lbl_edition">EL HOMBRE ORQUESTA</span>
+                    <h2 class="hero-title" data-i18n="lbl_hero_title">TONAH</h2>
+                </div>
+            </div>
+
+            <div class="mosaic-item menu-block">
+    <div class="magazine-menu-grid">
+        <button class="mag-btn" onclick="showAppContent('curriculum')"><span class="num">01</span> <span data-i18n="btn_conoceme">CONOCEME</span></button>
+        <button class="mag-btn" onclick="showAppContent('cat2')"><span class="num">02</span> <span data-i18n="btn_portafolio">PORTAFOLIO DE IMAGENES</span></button>
+        <button class="mag-btn" onclick="showAppContent('cat3')"><span class="num">03</span> <span data-i18n="btn_poder_musica">EL PODER DE LA MUSICA</span></button>
+        <button class="mag-btn" onclick="showAppContent('cat4')"><span class="num">04</span> <span data-i18n="btn_contacto">CONTACTO</span></button>
+    </div>
+</div>
+
+            <div class="mosaic-item video-block" onclick="openYouTubeVideo()">
+                <div class="video-preview" id="yt-iframe-container">
+                    <img src="assets/hero/video-thumb.jpg" alt="Tonah Video Preview" id="yt-thumb-img" data-i18n-alt="alt_video_thumb">
+                    <div class="yt-play-mini" id="yt-play-icon"><i class="fab fa-youtube"></i></div>
+                </div>
+                <span class="block-label" data-i18n="lbl_clic_reproducir">CLIC PARA REPRODUCIR</span>
+            </div>
+
+            <div class="mosaic-item lead-block">
+                <button type="button" onclick="abrirPanelCertificadosDirecto()" class="btn-shiny-gold shine-effect" style="width: 100%; border: none; cursor: pointer; text-decoration: none; display: block; text-align: center; padding: 15px; font-weight: bold; border-radius: 5px;">
+    <i class="fas fa-award" style="margin-right: 8px;"></i> <span data-i18n="btn_grandes_momentos">GRANDES MOMENTOS</span>
+</button>
+            </div>
+
+            <div id="panelCertificadosDirecto" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000000; z-index: 99999; align-items: center; justify-content: center; padding: 10px; box-sizing: border-box;">
+                <div style="background: #111111; border: 1px solid #333; border-radius: 10px; width: 100%; max-width: 400px; max-height: 95vh; display: flex; flex-direction: column; padding: 15px; box-sizing: border-box;">
+
+                    <div style="text-align: center; padding-bottom: 10px;">
+                        <h3 style="font-size: 0.95rem; font-weight: bold; color: #fff; text-transform: uppercase; margin: 0 0 4px 0; font-family: 'Montserrat', sans-serif;" data-i18n="modal_grandes_momentos_title">GRANDES MOMENTOS</h3>
+                        <p style="font-size: 0.7rem; color: #aaa; margin: 0; font-family: 'Montserrat', sans-serif;" data-i18n="modal_grandes_momentos_desc">Toca una imagen para ampliarla y deslizarla</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; overflow-y: auto; padding: 5px 0; flex-grow: 1;">
+                        <div onclick="verZoomCertificado(0)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/1.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                        <div onclick="verZoomCertificado(1)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/2.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                        <div onclick="verZoomCertificado(2)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/3.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                        <div onclick="verZoomCertificado(3)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/4.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                        <div onclick="verZoomCertificado(4)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/5.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                        <div onclick="verZoomCertificado(5)" style="cursor: pointer; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: #000; border: 1px solid #444;">
+                            <img src="assets/gallery/cat1/6.jpg" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.style.display='none'">
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="cerrarPanelCertificadosDirecto()" style="width: 100%; padding: 12px; background: #f80101; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px;" data-i18n="btn_cerrar">Cerrar</button>
+                </div>
+            </div>
+
+            <!-- Modal global de Zoom con Carrusel -->
+            <div id="modalZoomCert" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.98); z-index: 9999999; align-items: center; justify-content: center; padding: 10px; box-sizing: border-box;" onclick="cerrarZoomCertificado()">
+                <div style="position: relative; max-width: 95%; max-height: 90vh; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation()">
+                    <img id="imgZoomCert" src="" style="max-width: 100%; max-height: 85vh; border-radius: 6px; display: block; object-fit: contain; border: 1px solid #fff;">
+                    
+                    <button type="button" onclick="cerrarZoomCertificado()" style="position: absolute; top: -15px; right: -15px; background: #f80101; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-weight: bold; font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.5);">×</button>
+                    
+                    <button type="button" onclick="cambiarSlideCert(-1)" style="position: absolute; left: -20px; background: rgba(0,0,0,0.8); color: #fff; border: 1px solid #fff; border-radius: 50%; width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.5);">❮</button>
+                    
+                    <button type="button" onclick="cambiarSlideCert(1)" style="position: absolute; right: -20px; background: rgba(0,0,0,0.8); color: #fff; border: 1px solid #fff; border-radius: 50%; width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.5);">❯</button>
+                </div>
+            </div>
+
+            <script>
+            const listaCertificados = [
+                "assets/gallery/cat1/1.jpg",
+                "assets/gallery/cat1/2.jpg",
+                "assets/gallery/cat1/3.jpg",
+                "assets/gallery/cat1/4.jpg",
+                "assets/gallery/cat1/5.jpg",
+                "assets/gallery/cat1/6.jpg"
+            ];
+            let indiceActualCert = 0;
+
+            function abrirPanelCertificadosDirecto() {
+                const p = document.getElementById('panelCertificadosDirecto');
+                if (p) p.style.display = 'flex';
+            }
+
+            function cerrarPanelCertificadosDirecto() {
+                const p = document.getElementById('panelCertificadosDirecto');
+                if (p) p.style.display = 'none';
+            }
+
+            function verZoomCertificado(index) {
+                indiceActualCert = index;
+                const modal = document.getElementById('modalZoomCert');
+                const img = document.getElementById('imgZoomCert');
+                if (modal && img) {
+                    img.src = listaCertificados[indiceActualCert];
+                    modal.style.display = 'flex';
+                }
+            }
+
+            function cerrarZoomCertificado() {
+                const modal = document.getElementById('modalZoomCert');
+                if (modal) modal.style.display = 'none';
+            }
+
+            function cambiarSlideCert(direccion) {
+                indiceActualCert += direccion;
+                if (indiceActualCert < 0) {
+                    indiceActualCert = listaCertificados.length - 1;
+                } else if (indiceActualCert >= listaCertificados.length) {
+                    indiceActualCert = 0;
+                }
+                const img = document.getElementById('imgZoomCert');
+                if (img) {
+                    img.src = listaCertificados[indiceActualCert];
+                }
+            }
+            </script>
+
+            <!-- Bloque 1: Botón de compartir -->
+<div class="mosaic-item -block">
+    <button class="btn-magazine-share" onclick="shareExperienceRobust()">
+        <i class="fas fa-share-alt"></i> 
+        <span data-i18n="btn_comparte_historia">COMPARTE MI HISTORIA TE LO AGRADEZCO</span>
+    </button>
+</div>
+
+<!-- Bloque 2: Texto de producción y WhatsApp optimizado para que el botón luzca perfecto -->
+<div style="text-align: center; margin: 12px 0; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; flex-wrap: nowrap;">
+    
+    <!-- Texto de producción (permite ajustarse si es necesario, pero sin romper el diseño) -->
+    <span style="font-size: 0.62rem; color: #888; font-weight: 500; letter-spacing: 0.2px; text-transform: uppercase; white-space: nowrap;" data-i18n="lbl_producido_por">
+        PRODUCIDO POR "TALENT CARD"
+    </span>
+    
+    <!-- Botón de WhatsApp con tamaño cómodo y legible -->
+    <a href="https://wa.me/524491472336?text=Hola,%20me%20interesa%20tener%20una%20Talent%20Card%20como%20esta." target="_blank" style="display: inline-flex; align-items: center; justify-content: center; background: #25d366; color: #ffffff; padding: 5px 10px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 0.68rem; white-space: nowrap; flex-shrink: 0;">
+        <i class="fab fa-whatsapp" style="font-size: 0.8rem; margin-right: 5px;"></i> <span data-i18n="btn_contactanos_card">CONTÁCTANOS</span>
+    </a>
+
+</div>
+               
+    <main id="dynamic-content-layer" class="content-overlay" style="display: none;">
+    <button class="btn-close-circular" onclick="closeAppContent()">×</button>
+    <section class="tab-pane" id="curriculum-pane" style="display: none;">
+        <div style="width: 100%; text-align: center; box-sizing: border-box; padding: 10px;">
+            <h2 class="pane-title" style="display: block; width: 100%; font-size: 1.4rem; color: #f80101; margin-bottom: 15px; text-align: center;">CONOCEME</h2>
+            <div class="cv-container" style="display: block; width: 100%; max-width: 100%; margin: 0 auto; padding: 20px; background: #fff; border-radius: 8px; text-align: left; color: #333; box-sizing: border-box;">
+        
+        <h3 style="color: #f80101; border-bottom: 2px solid #f80101; padding-bottom: 5px; margin-bottom: 15px;">Biografía</h3>
+        <div style="font-family: 'Montserrat', sans-serif; color: #fff; background: #121212; padding: 20px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+    
+    <!-- Perfil Principal / Cabecera -->
+<div style="text-align: center; border-bottom: 2px solid #f80101; padding-bottom: 15px; margin-bottom: 15px;">
+    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; margin: 0; color: #f80101; letter-spacing: 1px;" data-i18n="lbl_hero_title">TONAH</h2>
+    <p style="font-size: 0.9rem; color: #aaa; margin: 5px 0 0 0; text-transform: uppercase; font-weight: 600;" data-i18n="lbl_edition">El Hombre Orquesta</p>
+</div>
+
+<!-- Datos Personales (Diseño en lista vertical compacta) -->
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; margin-bottom: 20px;">
+    <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between;">
+        <span style="color: #888; font-weight: 600;" data-i18n="lbl_nombre_label">Nombre:</span>
+        <span style="color: #fff; font-weight: 500; text-align: right;" data-i18n="val_nombre">Tonatiuh Zamarrón</span>
+    </div>
+    <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between;">
+        <span style="color: #888; font-weight: 600;" data-i18n="lbl_edad_label">Edad:</span>
+        <span style="color: #fff; font-weight: 500;" data-i18n="val_edad">26 años</span>
+    </div>
+    <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between;">
+        <span style="color: #888; font-weight: 600;" data-i18n="lbl_nacimiento_label">Nacimiento:</span>
+        <span style="color: #fff; font-weight: 500;" data-i18n="val_nacimiento">15 Nov / CDMX</span>
+    </div>
+    <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between;">
+        <span style="color: #888; font-weight: 600;" data-i18n="lbl_nacionalidad_label">Nacionalidad:</span>
+        <span style="color: #fff; font-weight: 500;" data-i18n="val_nacionalidad">Mexicana</span>
+    </div>
+    <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between;">
+        <span style="color: #888; font-weight: 600;" data-i18n="lbl_estatura_label">Estatura / Peso:</span>
+        <span style="color: #fff; font-weight: 500;" data-i18n="val_estatura">1.75 m / 70 kg</span>
+    </div>
+</div>
+
+<!-- Sección: Formación Artística -->
+<div style="margin-bottom: 20px;">
+    <h3 style="font-size: 0.95rem; color: #f80101; border-left: 3px solid #f80101; padding-left: 8px; margin-bottom: 8px; text-transform: uppercase;" data-i18n="lbl_formacion_titulo">Formación Artística</h3>
+    <div style="background: #1a1a1a; padding: 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.4; color: #ccc;">
+        <p style="margin: 0 0 6px 0;"><strong data-i18n="lbl_perfil_label">Perfil:</strong> <span data-i18n="val_perfil_text">Músico Independiente, Autodidacta y Compositor.</span></p>
+        <p style="margin: 0;"><strong data-i18n="lbl_desempeno_label">Desempeño:</strong> <span data-i18n="val_desempeno_text">100% Dominio motriz, ejecución simultánea y conexión urbana.</span></p>
+    </div>
+</div>
+
+<!-- Sección: Especialidad -->
+<div style="margin-bottom: 20px;">
+    <h3 style="font-size: 0.95rem; color: #f80101; border-left: 3px solid #f80101; padding-left: 8px; margin-bottom: 8px; text-transform: uppercase;" data-i18n="lbl_especialidad_titulo">Especialidad</h3>
+    <div style="background: #1a1a1a; padding: 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.4; color: #ccc;">
+        <p style="margin: 0 0 6px 0;"><strong data-i18n="lbl_disciplina_label">Disciplina:</strong> <span data-i18n="val_disciplina_text">Músico Callejero / Show en Vivo.</span></p>
+        <p style="margin: 0;"><strong data-i18n="lbl_tecnica_label">Técnica:</strong> <span data-i18n="val_tecnica_text">Independencia corporal extrema (bombo, charles, guitarra y armónicas con sistema artesanal de poleas y pedales).</span></p>
+    </div>
+</div>
+
+<!-- Sección: Logros y Trayectoria -->
+<div>
+    <h3 style="font-size: 0.95rem; color: #f80101; border-left: 3px solid #f80101; padding-left: 8px; margin-bottom: 8px; text-transform: uppercase;" data-i18n="lbl_logros_titulo">Logros y Trayectoria</h3>
+    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.83rem; color: #ccc;">
+        <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; border-left: 2px solid #f80101;" data-i18n="val_logro_1">
+            📌 Artista urbano referente en el emblemático <strong>Parque México (Condesa, CDMX)</strong>.
+        </div>
+        <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; border-left: 2px solid #f80101;" data-i18n="val_logro_2">
+            🎸 Invitado especial de <strong>Álex Lora</strong> para tocar con <strong>El Tri</strong> en la Arena Ciudad de México ("Chavo de onda").
+        </div>
+        <div style="background: #1a1a1a; padding: 10px 12px; border-radius: 6px; border-left: 2px solid #f80101;" data-i18n="val_logro_3">
+            🌐 Proyección viral masiva en redes y reconocimiento de figuras globales como <strong>Paul McCartney</strong>.
+        </div>
+    </div>
+</div>
+       
+    </section>
+        <section class="tab-pane" id="cat2-pane" style="display: none;"><h2 class="pane-title"></h2><div id="grid-cat2" class="carousel-zigzag-grid"></div></section>
+        <section class="tab-pane" id="cat3-pane" style="display: none;"><h2 class="pane-title"></h2><div id="grid-cat3" class="carousel-zigzag-grid"></div></section>
+        <section class="tab-pane" id="cat4-pane" style="display: none;">
+            <h2 class="pane-title">CONTACTO</h2>
+            <div class="contact-panel-robust">
+                <p class="address-tag"><i class="fas fa-microphone-alt"></i> Para contrataciones contactanos por redes sociales</p>
+                <div class="social-vertical-stack">
+                    <!-- Botón 1: Facebook (Mantiene el acceso a Facebook) -->
+                    <a id="link-fb" href="https://www.facebook.com/TNToficial0?locale=es_LA" target="_blank" class="stack-btn fb-color"><i class="fab fa-facebook"></i> FACEBOOK</a>
+
+                    <!-- Botón 2: Instagram -->
+                    <a id="link-insta" href="https://www.instagram.com/tonahelhombreorqesta?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="stack-btn insta-color"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+
+                    <!-- Botón: YouTube con color oficial integrado -->
+                    <a id="link-youtube" href="https://www.youtube.com/@TonahZamarron" target="_blank" class="stack-btn" style="background-color: #ff0000 !important; color: #ffffff !important;"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                <div class="qr-reubicado-container">
+                    <h4 class="qr-section-heading">ESCANEA EL CÓDIGO QR</h4>
+                    <img src="assets/hero/qr.png" alt="QR Local" class="qr-embedded-img">
+                    <a href="assets/hero/qr.png" download="qr.png" class="btn-download-qr-integrated" onclick="playClickSound()">
+                        <i class="fas fa-cloud-download-alt"></i> COMPARTIR QR
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <div id="lightbox" class="overlay-modal" style="display: none;" onclick="closeLightbox()">
+        <button class="btn-close-circular" onclick="closeLightbox()">×</button>
+        <div class="zoom-premium-content" onclick="event.stopPropagation()">
+            <button class="btn-nav-lightbox btn-prev" onclick="changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="zoom-image-wrapper">
+                <img id="lightbox-image" src="" alt="Zoom">
+                <img src="assets/brand/logo-mini.png" class="mini-logo-zoom-overlay">
+            </div>
+            <button class="btn-nav-lightbox btn-next" onclick="changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div id="text-zoom-modal" class="overlay-modal" style="display: none;" onclick="closeTextZoom()">
+        <div class="text-zoom-card" onclick="event.stopPropagation()">
+            <button class="btn-close-circular" style="top:-20px; right:-20px;" onclick="closeTextZoom()">×</button>
+            <div class="card-branding-header" style="display: flex; align-items: center;">
+                <img src="assets/brand/logo-mini.png" class="card-logo" style="width: 40px; margin-right: 10px;">
+                <h3 id="text-zoom-title"></h3>
+            </div>
+            <hr class="gold-divider" style="border: 0; border-top: 1px solid var(--brand-accent); margin: 15px 0;">
+            <div id="text-zoom-content" style="white-space: pre-line;"></div>
+        </div>
+    </div>
+
+    <audio id="sndFxClick" src="assets/sounds/clic.mp3"></audio>
+    
+    <div id="video-lightbox-overlay" class="overlay-modal" style="display:none;" onclick="closeVideoLightbox()">
+        <button class="btn-close-circular" onclick="closeVideoLightbox()">×</button>
+        <div class="zoom-premium-content" onclick="event.stopPropagation()">
+            <div class="zoom-image-wrapper" style="width: 90%; max-width: 600px;">
+                <iframe id="video-lightbox-frame" style="width: 100%; aspect-ratio: 16/9; border: 3px solid var(--brand-accent); border-radius: 10px;" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de control para abrir y cerrar el modal del asistente -->
+    <script>
+        function abrirAsistente() {
+            document.getElementById('modalAsistente').style.display = 'flex';
+        }
+        function cerrarAsistente() {
+            document.getElementById('modalAsistente').style.display = 'none';
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
