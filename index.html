@@ -469,23 +469,28 @@
         <section class="tab-pane" id="cat2-pane" style="display: none;"><h2 class="pane-title"></h2><div id="grid-cat2" class="carousel-zigzag-grid"></div></section>
         <section class="tab-pane" id="cat3-pane" style="display: none;"><h2 class="pane-title"></h2><div id="grid-cat3" class="carousel-zigzag-grid"></div></section>
         <section class="tab-pane" id="cat4-pane" style="display: none;">
-            <h2 class="pane-title">CONTACTO</h2>
+            <h2 class="pane-title" data-i18n="contact_title">CONTACTO</h2>
             <div class="contact-panel-robust">
-                <p class="address-tag"><i class="fas fa-microphone-alt"></i> Para contrataciones +52 56 5482 8000</p>
+                <p class="address-tag"><i class="fas fa-microphone-alt"></i> <span data-i18n="contact_contracting">Para contrataciones +52 56 5482 8000</span></p>
                 <div class="social-vertical-stack">
-                    <!-- Botón 1: Facebook (Mantiene el acceso a Facebook) -->
-                    <a id="link-fb" href="https://www.facebook.com/TNToficial0?locale=es_LA" target="_blank" class="stack-btn fb-color"><i class="fab fa-facebook"></i> FACEBOOK</a>
+                    <!-- Botón 0: WhatsApp (Nuevo, ubicado antes de Facebook) -->
+                    <a id="link-whatsapp" href="https://wa.me/525654828000" target="_blank" class="stack-btn whatsapp-color" style="background-color: #25d366 !important; color: #ffffff !important;"><i class="fab fa-whatsapp"></i> <span data-i18n="btn_whatsapp">WHATSAPP</span></a>
+
+                    <!-- Botón 1: Facebook -->
+                    <a id="link-fb" href="https://www.facebook.com/TNToficial0?locale=es_LA" target="_blank" class="stack-btn fb-color"><i class="fab fa-facebook"></i> <span data-i18n="btn_facebook">FACEBOOK</span></a>
 
                     <!-- Botón 2: Instagram -->
-                    <a id="link-insta" href="https://www.instagram.com/tonahelhombreorqesta?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="stack-btn insta-color"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                    <a id="link-insta" href="https://www.instagram.com/tonahelhombreorqesta?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="stack-btn insta-color"><i class="fab fa-instagram"></i> <span data-i18n="btn_instagram">INSTAGRAM</span></a>
 
-                    <!-- Botón: YouTube con color oficial integrado -->
-                    <a id="link-youtube" href="https://www.youtube.com/@TonahZamarron" target="_blank" class="stack-btn" style="background-color: #ff0000 !important; color: #ffffff !important;"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                    <!-- Botón 3: YouTube -->
+                    <a id="link-youtube" href="https://www.youtube.com/@TonahZamarron" target="_blank" class="stack-btn" style="background-color: #ff0000 !important; color: #ffffff !important;"><i class="fab fa-youtube"></i> <span data-i18n="btn_youtube">YOUTUBE</span></a>
+                </div>
+                
                 <div class="qr-reubicado-container">
-                    <h4 class="qr-section-heading">ESCANEA EL CÓDIGO QR</h4>
+                    <h4 class="qr-section-heading" data-i18n="qr_heading">ESCANEA EL CÓDIGO QR</h4>
                     <img src="assets/hero/qr.png" alt="QR Local" class="qr-embedded-img">
                     <a href="assets/hero/qr.png" download="qr.png" class="btn-download-qr-integrated" onclick="playClickSound()">
-                        <i class="fas fa-cloud-download-alt"></i> COMPARTIR QR
+                        <i class="fas fa-cloud-download-alt"></i> <span data-i18n="btn_share_qr">COMPARTIR QR</span>
                     </a>
                 </div>
             </div>
