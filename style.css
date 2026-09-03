@@ -1,10 +1,10 @@
 :root {
-    --brand-accent: #1e40af;       /* Azul corporativo fuerte extraído del logo */
+    --brand-accent: #3b82f6;        /* Azul metálico eléctrico moderno / Rock style */
     --brand-secondary: #fdf8f0;    /* Color Crema / Marfil suave para textos y contrastes */
-    --bg-premium: #05070a;         /* Fondo negro elegante / azul muy profundo */
-    --gold-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%); /* Gradiente basado en tus azules */
-    --bg-card-dark: #0c121d;       /* Tarjetas oscuras con subtono azulado */
-    --mar-claro: #3b82f6;          /* Azul vibrante secundario */
+    --bg-premium: #05070a;         /* Fondo negro elegante / profundidad */
+    --gold-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%); /* Gradiente azul metálico luminoso */
+    --bg-card-dark: #0c121d;       /* Tarjetas oscuras */
+    --mar-claro: #1d4ed8;          /* Azul vibrante secundario */
     --cielo-profundo: #05070a;
 }
 
@@ -15,7 +15,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 
 .main-hub { height: 100vh; padding: 5px 10px; display: flex; flex-direction: column; align-items: center; overflow: hidden; justify-content: flex-start; gap: 4px; }
 
-.magazine-header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 2px 5px 2px 45px; border-bottom: 1px solid rgba(30,64,175,0.3); margin-bottom: 4px; }
+.magazine-header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 2px 5px 2px 45px; border-bottom: 1px solid rgba(59,130,246,0.3); margin-bottom: 4px; }
 .header-title-container { display: flex; flex-direction: column; gap: 1px; }
 .agency-name { font-family: 'Bebas Neue'; font-size: 0.95rem; color: var(--brand-secondary); letter-spacing: 1.5px; }
 .agency-logo { width: 22px; }
@@ -23,7 +23,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .download-track-container { display: flex; flex-direction: column; gap: 1px; margin-top: 1px; }
 .download-text { font-size: 0.48rem; color: var(--brand-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
 .btn-download-audio { display: inline-flex; align-items: center; justify-content: center; gap: 4px; background: transparent; border: 1px solid var(--brand-accent); color: var(--brand-secondary); padding: 2px 6px; border-radius: 5px; font-size: 0.5rem; font-weight: 800; text-decoration: none; width: fit-content; transition: background 0.2s ease; }
-.btn-download-audio:active { background: rgba(30, 64, 175, 0.2); }
+.btn-download-audio:active { background: rgba(59, 130, 246, 0.2); }
 
 .mosaic-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6px; width: 100%; max-width: 380px; }
 .hero-block { grid-column: 1 / -1; height: 105px; display: flex; border-radius: 12px; overflow: hidden; cursor: pointer; border: 2px solid var(--brand-accent); } 
@@ -44,7 +44,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .block-label { font-family: 'Bebas Neue'; font-size: 0.6rem; text-align: center; color: var(--brand-secondary); letter-spacing: 0.5px; }
 
 .lead-block { grid-column: 1 / -1; }
-.btn-shiny-gold { width: 100%; height: 38px; border-radius: 10px; border: none; background: var(--gold-gradient); color: var(--brand-secondary); font-weight: 900; font-size: 0.72rem; position: relative; overflow: hidden; cursor: pointer; box-shadow: 0 4px 12px rgba(30,64,175,0.3); }
+.btn-shiny-gold { width: 100%; height: 38px; border-radius: 10px; border: none; background: var(--gold-gradient); color: #05070a; font-weight: 900; font-size: 0.72rem; position: relative; overflow: hidden; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
 
 .share-block { grid-column: 1 / -1; }
 .btn-magazine-share { width: 100%; height: 32px; background: transparent; border: 1px solid var(--brand-accent); color: var(--brand-secondary); border-radius: 10px; font-weight: 800; font-size: 0.58rem; cursor: pointer; }
@@ -58,12 +58,12 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .altpro-link { background: var(--bg-card-dark); border: 1px solid var(--brand-accent); color: var(--brand-secondary); padding: 4px 10px; border-radius: 20px; font-weight: 900; text-decoration: none; display: inline-flex !important; align-items: center; gap: 4px; font-size: 0.6rem; }
 
 .contact-panel-robust { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 320px; gap: 8px; margin: 0 auto; }
-.address-tag { font-size: 0.65rem; text-align: center; color: var(--brand-secondary); line-height: 1.3; font-weight: 600; width: 100%; border-bottom: 1px dashed rgba(30,64,175,0.3); padding-bottom: 4px; }
+.address-tag { font-size: 0.65rem; text-align: center; color: var(--brand-secondary); line-height: 1.3; font-weight: 600; width: 100%; border-bottom: 1px dashed rgba(59,130,246,0.3); padding-bottom: 4px; }
 
 .qr-reubicado-container { width: 100%; background: var(--bg-card-dark); border: 1px dashed var(--brand-accent); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px; }
 .qr-section-heading { font-family: 'Bebas Neue'; font-size: 0.95rem; color: var(--brand-secondary); letter-spacing: 1px; text-transform: uppercase; }
 .qr-embedded-img { width: 100px; height: 100px; display: block; border-radius: 6px; background: #fff; padding: 4px; object-fit: contain; }
-.btn-download-qr-integrated { width: 100%; height: 32px; text-decoration: none; background: var(--gold-gradient); color: var(--brand-secondary); border: none; border-radius: 6px; font-size: 0.6rem; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.5px; transition: opacity 0.2s; }
+.btn-download-qr-integrated { width: 100%; height: 32px; text-decoration: none; background: var(--gold-gradient); color: #05070a; border: none; border-radius: 6px; font-size: 0.6rem; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.5px; transition: opacity 0.2s; }
 
 .content-overlay { position: fixed; inset: 0; background: rgba(5, 7, 10, 0.98); z-index: 5000; padding: 60px 10px 10px; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
 
@@ -75,7 +75,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .zoom-image-wrapper { position: relative; display: inline-flex; align-items: center; justify-content: center; max-width: 90%; }
 #lightbox-image { max-height: 80vh; border: 3px solid var(--brand-accent); border-radius: 10px; }
 .mini-logo-zoom-overlay { position: absolute; top: 15px; right: 15px; width: 45px; pointer-events: none; filter: drop-shadow(0 0 5px rgba(0,0,0,0.8)); }
-.btn-nav-lightbox { position: absolute; top: 50%; background: rgba(30,64,175,0.4); border: none; color: var(--brand-secondary); padding: 15px; border-radius: 50%; cursor: pointer; z-index: 9001; font-size: 1.5rem; }
+.btn-nav-lightbox { position: absolute; top: 50%; background: rgba(59,130,246,0.4); border: none; color: var(--brand-secondary); padding: 15px; border-radius: 50%; cursor: pointer; z-index: 9001; font-size: 1.5rem; }
 .btn-prev { left: 10px; }
 .btn-next { right: 10px; }
 
@@ -100,9 +100,9 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .network-modal-title { font-family: 'Bebas Neue'; font-size: 1.6rem; color: var(--brand-secondary); letter-spacing: 1px; margin-bottom: 4px; }
 .network-modal-subtitle { font-size: 0.65rem; color: var(--brand-secondary); text-transform: uppercase; margin-bottom: 20px; font-weight: 600; opacity: 0.8; }
 .network-buttons-grid { display: grid; grid-template-columns: 1fr; gap: 10px; width: 100%; }
-.btn-network-link { width: 100%; height: 46px; background: var(--bg-card-dark); border: 1px solid rgba(30,64,175,0.4); border-radius: 10px; color: var(--brand-secondary); font-size: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; }
+.btn-network-link { width: 100%; height: 46px; background: var(--bg-card-dark); border: 1px solid rgba(59,130,246,0.4); border-radius: 10px; color: var(--brand-secondary); font-size: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; }
 
-/* NUEVO MENÚ DE CONTACTO - ACORDEÓN SUCURSALES */
+/* MENÚ DE CONTACTO - ACORDEÓN SUCURSALES */
 .menu-oculto {
     display: none; 
     position: fixed; 
@@ -150,7 +150,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     flex-direction: column;
     gap: 8px;
     padding: 5px 10px 10px 10px;
-    background: rgba(30, 64, 175, 0.08);
+    background: rgba(59, 130, 246, 0.08);
     border-left: 2px solid var(--brand-accent);
     margin-bottom: 5px;
 }
@@ -167,7 +167,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     display: block;
 }
 .whatsapp { background-color: #25d366; color: #fff !important; }
-.maps-btn { background-color: #1e40af; color: #fff !important; }
+.maps-btn { background-color: #1e3a8a; color: #fff !important; }
 .btn-cerrar { margin-top: 15px; padding: 12px; background: var(--bg-card-dark); color: var(--brand-secondary); border: 1px solid var(--brand-accent); border-radius: 5px; cursor: pointer; font-weight: bold; }
 
 /* CUADRÍCULA DE IMÁGENES GALERÍA */
@@ -190,7 +190,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     height: 100%;
     object-fit: cover; 
     border-radius: 8px;
-    border: 1px solid rgba(30,64,175,0.4);
+    border: 1px solid rgba(59,130,246,0.4);
 }
 
 [id^="grid-cat"] {
@@ -232,7 +232,7 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     cursor: pointer !important;
     transition: all 0.3s ease !important;
 }
-/* Fuerza a que cualquier elemento de la galería/mosaico que deba ocupar todo el ancho, lo haga */
+
 .mosaic-item.-block, 
 .mosaic-item:has(.btn-magazine-share) {
     grid-column: 1 / -1 !important; 
@@ -242,7 +242,6 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     flex-direction: column !important;
 }
 
-/* Estilo blindado para el botón de compartir para que nunca se encoja */
 .btn-magazine-share {
     width: 100% !important;
     box-sizing: border-box !important;

@@ -96,11 +96,11 @@ function renderGallery(cat) {
             const tObj = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : {};
             
             videoContainer.innerHTML = `
-                <h3 style="color: #f80101; font-size: 1.1rem; text-align: center; margin-bottom: 10px; margin-top: 0;">${tObj.lbl_mis_fortalezas || 'Mis Fortalezas en Video'}</h3>
+                <h3 style="color: #f80101; font-size: 1.1rem; text-align: center; margin-bottom: 10px; margin-top: 0;">${tObj.lbl_mis_fortalezas || 'México en el corazón'}</h3>
                 <a href="https://www.youtube.com/shorts/9oPnXe_ESRE" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_tributo_tri || 'Tributo al TRI'}</a>
                 <a href="https://www.youtube.com/shorts/O_xHWoePOpY" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_junto_mar || 'Junto al Mar'}</a>
-                <a href="https://www.youtube.com/shorts/F6eVDMPTGvI" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_con_gente || 'Con mi gente'}</a>
-                <a href="https://www.youtube.com/shorts/ei819k9iXmg" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_cantando_beatles || 'Cantando a The beatles'}</a>
+                <a href="https://www.instagram.com/p/Db4WSXauEYc/" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_con_gente || 'Cantando en Paris'}</a>
+                <a href="https://www.youtube.com/shorts/ei819k9iXmg" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; border: 1px solid var(--brand-accent);">${tObj.btn_cantando_beatles || 'Orgullo MexicCantando a The beatles'}</a>
             `;
         } else if (cat === 'cat2') {
             const lang = localStorage.getItem('selectedLanguage') || 'es';
@@ -108,7 +108,7 @@ function renderGallery(cat) {
             
             videoContainer.innerHTML = `
                 <a href="https://www.youtube.com/shorts/Bm5BiSfe0Hk" target="_blank" style="display: block; width: 100%; box-sizing: border-box; background: #b00; color: #fff; padding: 14px 25px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 0.9rem; text-align: center;">
-                    ${tObj.btn_video_historia || 'VIDEO DE MI HISTORIA'}
+                    ${tObj.btn_video_historia || 'ME PRESENTO'}
                 </a>
             `;
         }
@@ -117,7 +117,12 @@ function renderGallery(cat) {
     
     const btn = document.createElement('button');
     btn.className = 'btn-details-gold'; 
-    btn.innerHTML = `<i class="fas fa-plus-circle"></i> VER DETALLES`;
+    
+    // Obtenemos el idioma actual y su respectiva traducción
+    const lang = localStorage.getItem('selectedLanguage') || 'es';
+    const tObj = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : {};
+    
+    btn.innerHTML = `<i class="fas fa-plus-circle"></i> ${tObj.btn_ver_detalles || 'VER DETALLES'}`;
     btn.onclick = (e) => { e.stopPropagation(); openTextZoom(cat); };
     grid.appendChild(btn);
 }
